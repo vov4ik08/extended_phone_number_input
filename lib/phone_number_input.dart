@@ -29,6 +29,7 @@ class PhoneNumberInput extends StatefulWidget {
   final Color? cursorColor;
   final Color? arrowIconColor;
   final Color? textColor;
+
   const PhoneNumberInput({
     Key? key,
     this.controller,
@@ -148,24 +149,27 @@ class _CountryCodePickerState extends State<PhoneNumberInput> {
                                 ContactsPickerPosition.suffix,
                         child: widget.pickContactIcon == null
                             ? IconButton(
-                                onPressed: _phoneNumberInputController
-                                    .pickFromContacts,
-                                icon: Icon(
-                                  Icons.contact_phone,
-                                  color: Theme.of(context).primaryColor,
-                                ))
+                            onPressed: _phoneNumberInputController
+                                .pickFromContacts,
+                            icon: Icon(
+                              Icons.contact_phone,
+                              color: Theme
+                                  .of(context)
+                                  .primaryColor,
+                            ))
                             : InkWell(
-                                onTap: _phoneNumberInputController
-                                    .pickFromContacts,
-                                child: widget.pickContactIcon,
-                              ),
+                          onTap: _phoneNumberInputController
+                              .pickFromContacts,
+                          child: widget.pickContactIcon,
+                        ),
                       ),
                       prefixIcon: InkWell(
                         onTap: _openCountryList,
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            const Icon(Icons.arrow_drop_down, color: widget.arrowIconColor),
+                            Icon(Icons.arrow_drop_down,
+                                color: widget.arrowIconColor),
                             if (_selectedCountry != null &&
                                 widget.showSelectedFlag)
                               Image.asset(
@@ -204,16 +208,18 @@ class _CountryCodePickerState extends State<PhoneNumberInput> {
                             ContactsPickerPosition.bottom,
                     child: widget.pickContactIcon == null
                         ? IconButton(
-                            onPressed:
-                                _phoneNumberInputController.pickFromContacts,
-                            icon: Icon(
-                              Icons.contact_phone,
-                              color: Theme.of(context).primaryColor,
-                            ))
+                        onPressed:
+                        _phoneNumberInputController.pickFromContacts,
+                        icon: Icon(
+                          Icons.contact_phone,
+                          color: Theme
+                              .of(context)
+                              .primaryColor,
+                        ))
                         : InkWell(
-                            onTap: _phoneNumberInputController.pickFromContacts,
-                            child: widget.pickContactIcon,
-                          )),
+                      onTap: _phoneNumberInputController.pickFromContacts,
+                      child: widget.pickContactIcon,
+                    )),
               ],
             ),
           );
@@ -230,7 +236,8 @@ class _CountryCodePickerState extends State<PhoneNumberInput> {
             ),
             enableDrag: true,
             context: context,
-            builder: (_) => SizedBox(
+            builder: (_) =>
+                SizedBox(
                   height: 500,
                   child: CountryCodeList(
                       searchHint: widget.searchHint,
@@ -241,7 +248,8 @@ class _CountryCodePickerState extends State<PhoneNumberInput> {
       case CountryListMode.dialog:
         showDialog(
             context: context,
-            builder: (_) => AlertDialog(
+            builder: (_) =>
+                AlertDialog(
                   contentPadding: EdgeInsets.zero,
                   content: SizedBox(
                     width: double.maxFinite,
@@ -249,7 +257,7 @@ class _CountryCodePickerState extends State<PhoneNumberInput> {
                         searchHint: widget.searchHint,
                         allowSearch: widget.allowSearch,
                         phoneNumberInputController:
-                            _phoneNumberInputController),
+                        _phoneNumberInputController),
                   ),
                 ));
         break;
