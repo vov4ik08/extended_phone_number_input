@@ -26,6 +26,9 @@ class PhoneNumberInput extends StatefulWidget {
   final InputBorder? focusedBorder;
   final ContactsPickerPosition contactsPickerPosition;
   final String? errorText;
+  final Color? cursorColor;
+  final Color? arrowIconColor;
+  final Color? textColor;
   const PhoneNumberInput({
     Key? key,
     this.controller,
@@ -47,6 +50,9 @@ class PhoneNumberInput extends StatefulWidget {
     this.focusedBorder,
     this.contactsPickerPosition = ContactsPickerPosition.suffix,
     this.errorText,
+    this.cursorColor,
+    this.arrowIconColor,
+    this.textColor,
   }) : super(key: key);
 
   @override
@@ -116,6 +122,7 @@ class _CountryCodePickerState extends State<PhoneNumberInput> {
                 Directionality(
                   textDirection: TextDirection.ltr,
                   child: TextFormField(
+                    cursorColor: widget.cursorColor,
                     controller: _phoneNumberTextFieldController,
                     inputFormatters: [
                       LengthLimitingTextInputFormatter(15),
@@ -158,7 +165,7 @@ class _CountryCodePickerState extends State<PhoneNumberInput> {
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            const Icon(Icons.arrow_drop_down),
+                            const Icon(Icons.arrow_drop_down, color: widget.arrowIconColor),
                             if (_selectedCountry != null &&
                                 widget.showSelectedFlag)
                               Image.asset(
@@ -172,7 +179,7 @@ class _CountryCodePickerState extends State<PhoneNumberInput> {
                               Text(
                                 _selectedCountry!.dialCode,
                                 style: TextStyle(
-                                    color: Theme.of(context).primaryColor),
+                                    color: widget.textColor),
                               ),
                             const SizedBox(
                               width: 8,
