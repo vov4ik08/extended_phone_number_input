@@ -6,11 +6,14 @@ class CountryCodeList extends StatefulWidget {
   final PhoneNumberInputController phoneNumberInputController;
   final bool allowSearch;
   final String? searchHint;
+  final Color? textColor;
   const CountryCodeList(
       {Key? key,
       required this.phoneNumberInputController,
       this.allowSearch = true,
-      this.searchHint = 'Search...'})
+      this.searchHint = 'Search...',
+      this.textColor
+      })
       : super(key: key);
 
   @override
@@ -99,7 +102,7 @@ class _CountryCodeListState extends State<CountryCodeList> {
                         Text(
                           _countries[index].dialCode,
                           style:
-                              TextStyle(color: Theme.of(context).primaryColor),
+                              TextStyle(color: widget.textColor),
                           textDirection: TextDirection.ltr,
                         ),
                         const SizedBox(width: 8),
