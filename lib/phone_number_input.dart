@@ -5,6 +5,7 @@ import 'package:extended_phone_number_input/models/country.dart';
 import 'package:extended_phone_number_input/phone_number_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:form_validator/form_validator.dart';
 
 class PhoneNumberInput extends StatefulWidget {
   final PhoneNumberInputController? controller;
@@ -133,7 +134,9 @@ class _CountryCodePickerState extends State<PhoneNumberInput> {
                       _phoneNumberInputController.innerPhoneNumber = v;
                     },
                     autovalidateMode: AutovalidateMode.onUserInteraction,
-                    validator: _phoneNumberInputController.validator,
+                    validator: ValidationBuilder(localeName: 'uk').phone().build(),
+
+                    // validator: _phoneNumberInputController.validator,
                     keyboardType: TextInputType.phone,
                     textAlignVertical: TextAlignVertical.center,
                     decoration: InputDecoration(
