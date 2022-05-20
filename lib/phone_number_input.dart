@@ -30,6 +30,7 @@ class PhoneNumberInput extends StatefulWidget {
   final Color? cursorColor;
   final Color? arrowIconColor;
   final Color? textColor;
+  final FormFieldValidator<String>? inputValidator;
 
   const PhoneNumberInput({
     Key? key,
@@ -55,6 +56,7 @@ class PhoneNumberInput extends StatefulWidget {
     this.cursorColor,
     this.arrowIconColor,
     this.textColor,
+    this.inputValidator
   }) : super(key: key);
 
   @override
@@ -134,7 +136,7 @@ class _CountryCodePickerState extends State<PhoneNumberInput> {
                       _phoneNumberInputController.innerPhoneNumber = v;
                     },
                     autovalidateMode: AutovalidateMode.onUserInteraction,
-                    validator: ValidationBuilder(localeName: 'uk').phone().build(),
+                    validator: widget.inputValidator,
 
                     // validator: _phoneNumberInputController.validator,
                     keyboardType: TextInputType.phone,
