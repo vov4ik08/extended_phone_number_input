@@ -247,7 +247,9 @@ class _CountryCodePickerState extends State<PhoneNumberInput> {
                   child: CountryCodeList(
                       searchHint: widget.searchHint,
                       allowSearch: widget.allowSearch,
-                      phoneNumberInputController: _phoneNumberInputController),
+                      phoneNumberInputController: _phoneNumberInputController,
+                      textColor: widget.textColor,
+                  ),
                 ));
         break;
       case CountryListMode.dialog:
