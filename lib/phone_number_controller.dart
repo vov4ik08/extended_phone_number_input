@@ -5,6 +5,7 @@ import 'package:extended_phone_number_input/utils/number_converter.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttercontactpicker/fluttercontactpicker.dart';
 import 'package:phone_numbers_parser/phone_numbers_parser.dart' as parserNumber;
+import 'package:extended_phone_number_input/utils/string_casing_extension.dart';
 
 import 'models/countries_list.dart';
 
@@ -93,7 +94,7 @@ class PhoneNumberInputController extends ChangeNotifier {
         .where((element) =>
             element.dialCode.contains(_searchKey) ||
             element.code.contains(_searchKey.toUpperCase()) ||
-            element.name.contains(_searchKey))
+            element.name.contains(_searchKey.toCapitalized()))
         .toList();
   }
 
