@@ -142,6 +142,9 @@ class _CountryCodePickerState extends State<PhoneNumberInput> {
                     keyboardType: TextInputType.phone,
                     textAlignVertical: TextAlignVertical.center,
                     decoration: InputDecoration(
+                      errorStyle: TextStyle(
+                        fontSize: 16.0,
+                      ),
                       contentPadding: EdgeInsets.zero,
                       hintText: widget.hint,
                       border: widget.border,
