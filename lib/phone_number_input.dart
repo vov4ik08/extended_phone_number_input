@@ -25,6 +25,7 @@ class PhoneNumberInput extends StatefulWidget {
   final CountryListMode countryListMode;
   final InputBorder? enabledBorder;
   final InputBorder? focusedBorder;
+  final InputBorder? errorBorder;
   final ContactsPickerPosition contactsPickerPosition;
   final String? errorText;
   final Color? cursorColor;
@@ -50,6 +51,7 @@ class PhoneNumberInput extends StatefulWidget {
     this.allowSearch = true,
     this.countryListMode = CountryListMode.bottomSheet,
     this.enabledBorder,
+    this.errorBorder,
     this.focusedBorder,
     this.contactsPickerPosition = ContactsPickerPosition.suffix,
     this.errorText,
@@ -152,6 +154,7 @@ class _CountryCodePickerState extends State<PhoneNumberInput> {
                       hintStyle: const TextStyle(color: Color(0xFFB6B6B6)),
                       enabledBorder: widget.enabledBorder,
                       focusedBorder: widget.focusedBorder,
+                      errorBorder: widget.errorBorder,
                       suffixIcon: Visibility(
                         visible: widget.allowPickFromContacts &&
                             widget.contactsPickerPosition ==
