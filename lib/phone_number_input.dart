@@ -27,6 +27,7 @@ class PhoneNumberInput extends StatefulWidget {
   final InputBorder? focusedBorder;
   final InputBorder? errorBorder;
   final TextStyle? errorStyle;
+  final EdgeInsets? contentPadding;
   final ContactsPickerPosition contactsPickerPosition;
   final String? errorText;
   final Color? cursorColor;
@@ -54,6 +55,7 @@ class PhoneNumberInput extends StatefulWidget {
     this.enabledBorder,
     this.errorBorder,
     this.errorStyle,
+    this.contentPadding,
     this.focusedBorder,
     this.contactsPickerPosition = ContactsPickerPosition.suffix,
     this.errorText,
@@ -130,6 +132,7 @@ class _CountryCodePickerState extends State<PhoneNumberInput> {
                 Directionality(
                   textDirection: TextDirection.ltr,
                   child: TextFormField(
+                    
                     cursorColor: widget.cursorColor,
                     controller: _phoneNumberTextFieldController,
                     inputFormatters: [
@@ -150,7 +153,7 @@ class _CountryCodePickerState extends State<PhoneNumberInput> {
                         fontSize: 16.0,
                         fontWeight: FontWeight.bold
                       ),
-                      contentPadding: EdgeInsets.zero,
+                      contentPadding: widget.contentPadding ?? EdgeInsets.zero,
                       hintText: widget.hint,
                       border: widget.border,
                       hintStyle: const TextStyle(color: Color(0xFFB6B6B6)),
