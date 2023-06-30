@@ -26,6 +26,7 @@ class PhoneNumberInput extends StatefulWidget {
   final InputBorder? enabledBorder;
   final InputBorder? focusedBorder;
   final InputBorder? errorBorder;
+  final TextStyle? errorStyle;
   final ContactsPickerPosition contactsPickerPosition;
   final String? errorText;
   final Color? cursorColor;
@@ -52,6 +53,7 @@ class PhoneNumberInput extends StatefulWidget {
     this.countryListMode = CountryListMode.bottomSheet,
     this.enabledBorder,
     this.errorBorder,
+    this.errorStyle,
     this.focusedBorder,
     this.contactsPickerPosition = ContactsPickerPosition.suffix,
     this.errorText,
@@ -144,7 +146,7 @@ class _CountryCodePickerState extends State<PhoneNumberInput> {
                     keyboardType: TextInputType.phone,
                     textAlignVertical: TextAlignVertical.center,
                     decoration: InputDecoration(
-                     errorStyle: TextStyle(
+                     errorStyle: widget.errorStyle ?? TextStyle(
                         fontSize: 16.0,
                         fontWeight: FontWeight.bold
                       ),
